@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class SqTen implements Grid {
     private static SqTen instance = null;
-    protected static int [][] grid = new int[100][100];
+    protected static int [][] grid = new int[20][20];
     private  static int defaultValue = 0;
 
     private SqTen() {
