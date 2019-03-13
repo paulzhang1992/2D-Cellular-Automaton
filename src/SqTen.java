@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class SqTen implements Grid {
     private static SqTen instance = null;
-    protected static int [][] grid = new int[10][10];
+    protected static int [][] grid = new int[100][100];
     private  static int defaultValue = 0;
 
     private SqTen() {
@@ -11,7 +11,6 @@ public class SqTen implements Grid {
 
     public static SqTen getInstance() {
         if (instance==null) instance = new SqTen();
-        else System.out.println("Grid is already created. The length of the square grid is "+grid.length);
         return instance;
     }
 
@@ -22,8 +21,11 @@ public class SqTen implements Grid {
     }
 
     @Override
-    public int locator(int x, int y) {
-        return grid[x][y];
+    public int getCell(int row, int column) {
+        return grid[row][column];
+    }
+    public int getCell(int [] cell) {
+        return grid[cell[0]][cell[1]];
     }
 
     @Override
@@ -32,15 +34,19 @@ public class SqTen implements Grid {
         for (int[] row : grid) {
             for (int cell : row) {
                 c = (cell == 0) ? "o".toCharArray()[0] : "x".toCharArray()[0];
-                System.out.print(c+"");
+                System.out.print(c+" ");
             }
             System.out.print("\n");
         }
     }
 
     @Override
-    public void gridAlter(int xCord, int yCord, int modValue) {
-        grid[xCord][yCord] = modValue;
+    public void cellAlter(int row, int column, int modValue) {
+        grid[row][column] = modValue;
+    }
+
+    public void cellAlter(int [] cell , int modValue) {
+        grid[cell[0]][cell[1]] = modValue;
     }
 
 

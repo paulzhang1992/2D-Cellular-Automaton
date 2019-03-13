@@ -12,11 +12,12 @@ public interface Grid {
 
     public int[][] generator(int defaultValue);
 
-    public int locator(int x, int y);
+    public int getCell(int row, int column);
 
     public void showGrid();
 
-    public void gridAlter(int xCord, int yCord, int modValue);
+    public void cellAlter(int row, int column, int modValue);
+
 
 
 }
