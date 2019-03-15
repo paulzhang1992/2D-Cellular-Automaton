@@ -1,6 +1,6 @@
 public interface Rule {
 
-    public void applyRule(Cell cell);
+    public void applyRule(CellSquare cell);
 
 
 }
