@@ -1,12 +1,14 @@
 public class GridSquareCell {
     private static GridSquareCell instance = null;
 
-    private int length = 10; //columns
-    private int height = 10;  //rows
+    private int length; //columns
+    private int height;  //rows
     private final int dValue = 0; // default value for cells
     public CellSquare[][] grid;
 
     private GridSquareCell(int height, int length) {
+        this.length = length;
+        this.height = height;
         grid = new CellSquare[height][length];
         int rowCoord = 0;
         for (CellSquare[] cellRow : grid) {
@@ -93,7 +95,33 @@ public class GridSquareCell {
             }
             return neighbor;
         }
+    public int[][] getGridInt (){
+        int[][] intGrid = new int[this.height][this.length];
+        int height = 0;
+        for (CellSquare[] row : grid) {
+            int[] intRow = new int[this.length];
+            int length = 0;
+            for (CellSquare cell : row) {
+                intRow [length] = cell.getStatus();
+                length++;
+            }
+            intGrid[height]=intRow;
+            height++;
+        }
+        return intGrid;
+    }
 
+    public void showGridXO() {
+        int[][] intGrid = getGridInt();
+        String cellString;
+        for (int[] row : intGrid) {
+            for (int cell : row) {
+                cellString = (cell == 0) ? "o": "x";
+                System.out.print(cellString+" ");
+            }
+            System.out.print("\n");
+        }
+    }
 
 
 }
