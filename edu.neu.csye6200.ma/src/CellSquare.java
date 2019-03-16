@@ -5,6 +5,7 @@ public class CellSquare implements Cell {
     int gridH;
 
 
+    // Cell creation constructor
     public CellSquare(int status ,int rowCoord, int columnCoord,int gridH,int gridL) {
         this.status = status;
         this.gridCoord[0] = rowCoord;
@@ -14,6 +15,7 @@ public class CellSquare implements Cell {
     }
 
     @Override
+    // Get the upper cell for the current (or target)cell
     public CellSquare up() {
         GridSquareCell gc = GridSquareCell.getInstance();
         int [] up= new int[2];
@@ -23,6 +25,7 @@ public class CellSquare implements Cell {
     }
 
     @Override
+    // Get the lower cell for the current (or target)cell
     public CellSquare down() {
         GridSquareCell gc = GridSquareCell.getInstance();
         int [] down = new int[2];
@@ -32,6 +35,7 @@ public class CellSquare implements Cell {
     }
 
     @Override
+    // Get the right cell for the current (or target)cell
     public CellSquare right() {
         GridSquareCell gc = GridSquareCell.getInstance();
         int [] right = new int[2];
@@ -41,6 +45,7 @@ public class CellSquare implements Cell {
     }
 
     @Override
+    // Get the left cell for the current (or target)cell
     public CellSquare left() {
         GridSquareCell gc = GridSquareCell.getInstance();
         int [] left = new int[2];
@@ -55,6 +60,7 @@ public class CellSquare implements Cell {
     }
 
     @Override
+    // Set cell status
     public void setStatus(int status) {
         this.status = status;
     }
