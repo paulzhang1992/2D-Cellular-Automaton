@@ -4,10 +4,12 @@ public class Frame {
 
     private int length; //columns
     private int height;  //rows
-    private final int dValue = 0; // default value for cells
-    public Cell[][] frame;
+    Cell[][] frame;
+    private static int idCount=0;
+    public int id; // For tracking iterations
 
 
+    // Default constructor with height and length of the frame
     public Frame(int height, int length) {
         // Grid initialization
         this.length = length;
@@ -20,18 +22,27 @@ public class Frame {
             int columnCord = 0;
             for (Cell cell : cellRow) {
                 //Adding info including default status, Coordinates and frame size
+                // default value for cells
+                int dValue = 0;
                 frame[rowCord][columnCord] = new Cell(dValue, rowCord, columnCord);
                 columnCord++;
             }
             rowCord++;
         }
+        id=idCount;
+        idCount++;
     }
 
+    // Constructor for creating a exact copy
     public Frame(Frame previousFrame) {
         frame = new Cell[previousFrame.height][previousFrame.length];
+        this.length = previousFrame.length;
+        this.height = previousFrame.height;
+        id = idCount;
+        idCount++;
     }
 
-    // Getting adjacent cells with Cordinates
+    // Getting adjacent cells with Coordinates
     public Cell up(int rowCord, int columnCord) {
         //rowCord = (rowCord == 0) ? height-1 : rowCord-1;
         return getCell((rowCord == 0) ? height-1 : rowCord-1, columnCord);
@@ -87,19 +98,15 @@ public class Frame {
     // More converting will be added later
     public int[][] getGridInt (){
         int[][] intGrid = new int[this.height][this.length];
-        int height = 0;
         for (Cell[] row : frame) {
-            int length = 0;
             for (Cell cell : row) {
-                intGrid[height][length] = cell.getStatus();
-                length++;
+                intGrid[cell.rowCord][cell.colCord] = cell.getStatus();
             }
-            height++;
         }
         return intGrid;
     }
 
-    // Visualization method for testing the rules
+    // Temporary visualization method for testing the rules
     public void showGridXO() {
         int[][] intGrid = getGridInt();
         String cellString;
