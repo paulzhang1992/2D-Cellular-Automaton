@@ -1,3 +1,5 @@
+package test.singleton;
+
 public class GridSquareCell {
     private static GridSquareCell instance = null;
 
@@ -14,12 +16,12 @@ public class GridSquareCell {
         this.height = height;
         grid = new CellSquare[height][length];
         int rowCoord = 0;
-        // Adding cells to each spot on the grid
+        // Adding cells to each spot on the frame
         // Looping the rows and then looping cells on each row.
         for (CellSquare[] cellRow : grid) {
             int columnCoord = 0;
             for (CellSquare cell : cellRow) {
-                //Adding info including default status, coordinates and grid size
+                //Adding info including default status, coordinates and frame size
                 grid[rowCoord][columnCoord] = new CellSquare(dValue, rowCoord, columnCoord,height,length);
                 columnCoord++;
             }
@@ -29,7 +31,7 @@ public class GridSquareCell {
         setActiveCell(0,0);
     }
 
-    // Singleton design. Only one square grid is allowed.
+    // Singleton design. Only one square frame is allowed.
     public static GridSquareCell getInstance() {
         //Only allowing default value. Custom set will be added in the future.
         if (instance==null) instance = new GridSquareCell(20,20);

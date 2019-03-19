@@ -1,3 +1,5 @@
+package test.singleton;
+
 import javax.swing.*;
 
 public class AutomatonTest {

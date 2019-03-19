@@ -1,3 +1,5 @@
+package test.intArrayTest.src;
+
 public class AutoM {
     public int iterations = 10;
     public int xCord = 0;

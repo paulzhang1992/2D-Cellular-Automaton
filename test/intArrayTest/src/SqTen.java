@@ -1,3 +1,5 @@
+package test.intArrayTest.src;
+
 import java.util.Arrays;
 
 public class SqTen implements Grid {

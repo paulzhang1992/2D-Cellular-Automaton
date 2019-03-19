@@ -1,3 +1,5 @@
+package test.intArrayTest.src;
+
 import java.io.IOException;
 
 public class TestCase {

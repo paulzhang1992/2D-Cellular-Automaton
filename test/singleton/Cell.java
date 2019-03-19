@@ -1,3 +1,5 @@
+package test.singleton;
+
 public interface Cell {
     int status = 0;
     int[] coord = new int[2];

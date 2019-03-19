@@ -1,3 +1,5 @@
+package test.singleton;
+
 public class CellSquare implements Cell {
     private int status;
     int[] gridCoord = new int[2];
@@ -5,7 +7,7 @@ public class CellSquare implements Cell {
     int gridH;
 
 
-    // Cell creation constructor
+    // test.singleton.Cell creation constructor
     public CellSquare(int status ,int rowCoord, int columnCoord,int gridH,int gridL) {
         this.status = status;
         this.gridCoord[0] = rowCoord;

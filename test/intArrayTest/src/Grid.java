@@ -1,3 +1,5 @@
+package test.intArrayTest.src;
+
 public interface Grid {
     Grid instance = null;
     int defaultValue = 0;

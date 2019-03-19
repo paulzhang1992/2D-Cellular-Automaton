@@ -1,3 +1,5 @@
+package test.singleton;
+
 import java.util.Random;
 
 public class RuleAdjacent{
