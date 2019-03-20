@@ -25,7 +25,7 @@ public class Test {
         FrameCollection fc = new FrameCollection(startFrame);
         fc.run();
         Board b = new Board(startFrame,50);
-        JFrame f = new JFrame("ChessChamp");
+        JFrame f = new JFrame("Cellular-Automaton");
         f.add(b.getGui());
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.pack();
