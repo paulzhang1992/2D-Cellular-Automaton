@@ -32,11 +32,11 @@ public class Test {
         f.setMinimumSize(f.getSize());
         f.setVisible(true);
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         // keep running
         for (int i = 0; i < 10000; i++) {
