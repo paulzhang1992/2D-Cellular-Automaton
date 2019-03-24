@@ -88,10 +88,10 @@ public class Frame {
     public Cell getCell(int rowCord, int columnCord) {
         return frame[rowCord][columnCord];
     }
-
     public void alterCell(int rowCord, int colCord, int status) {
         frame[rowCord][colCord].setStatus(status);
     }
+
 
 
     // Converting cell with cell's status(integer). For testing purpose.
