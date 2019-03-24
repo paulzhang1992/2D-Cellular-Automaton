@@ -43,7 +43,7 @@ public class Board {
             for (JButton button: row) {
                 JButton b = new JButton();
                 b.setMargin(buttonMargin);
-                ImageIcon icon = new ImageIcon(new BufferedImage(13, 13, BufferedImage.TYPE_INT_ARGB));
+                ImageIcon icon = new ImageIcon(new BufferedImage(8, 8, BufferedImage.TYPE_INT_ARGB));
                 b.setIcon(icon);
                 // Center part of the grip use w/r color option
                 if (i > 20 && i < 30 && j > 20 && j < 30) {
