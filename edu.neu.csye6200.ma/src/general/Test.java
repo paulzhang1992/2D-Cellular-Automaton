@@ -42,7 +42,15 @@ public class Test {
         for (int i = 0; i < 10000; i++) {
             Frame frame = fc.frameArrayList.get(fc.frameArrayList.size()-1);
             b.boardUpdate(frame);
+//            f.revalidate();
+            f.repaint();    // Only for MacOS
             f.setVisible(true);
+            // Adding delay
+//            try {
+//                Thread.sleep(2);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             fc.run();
 //            System.out.println(i);
         }

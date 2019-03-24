@@ -2,6 +2,10 @@ package general;
 
 public class Frame {
 
+    public int getLength() {
+        return length;
+    }
+
     private int length; //columns
     private int height;  //rows
     Cell[][] frame;

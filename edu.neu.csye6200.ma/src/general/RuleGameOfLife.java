@@ -28,7 +28,8 @@ public class RuleGameOfLife implements Rule {
                 + preGen.left(previousCell).getStatus()+                                                +preGen.right(previousCell).getStatus()
                 + preGen.down(preGen.left(previousCell)).getStatus()+preGen.down(previousCell).getStatus()+preGen.down(preGen.right(previousCell)).getStatus();
         // easier give lives rule for center part to keep the frame running
-        if (previousCell.colCord > 20 && previousCell.colCord < 30 && previousCell.rowCord > 20 && previousCell.rowCord < 30){
+        if (previousCell.colCord > (2*preGen.getLength()/5) && previousCell.colCord < (3*preGen.getLength()/5)
+                && previousCell.rowCord > (2*preGen.getLength()/5) && previousCell.rowCord < (3*preGen.getLength()/5)){
             if (sum == 3 || sum==2) newCell.setStatus(1);
         } else {
             // Other parts follow game of life rules
