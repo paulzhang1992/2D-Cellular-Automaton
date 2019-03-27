@@ -46,11 +46,11 @@ public class Test {
             f.repaint();    // Only for MacOS
             f.setVisible(true);
             // Adding delay
-//            try {
-//                Thread.sleep(2);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             fc.run();
 //            System.out.println(i);
         }
