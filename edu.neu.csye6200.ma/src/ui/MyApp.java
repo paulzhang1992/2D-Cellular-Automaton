@@ -30,7 +30,7 @@ public class MyApp extends AppFrame {
     protected JTextField endItr;
 
     protected FrameCollection fc;
-    private int ruleNum = 0;
+    private int ruleNum = 1;
 
 
 
@@ -48,7 +48,7 @@ public class MyApp extends AppFrame {
         showUI(); // Cause the Swing Dispatch thread to display the JFrame
 
         // Default collection and rule selection
-        fc = new FrameCollection(canvas.cellFrame,0);
+        fc = new FrameCollection(canvas.cellFrame,1);
     }
 
 
@@ -91,6 +91,7 @@ public class MyApp extends AppFrame {
         startBtn.setEnabled(true);
         pauseBtn.setEnabled(false);
         stopBtn.setEnabled(false);
+
 
         rule = new JComboBox<String>();
         northPanel.add(rule);
@@ -152,6 +153,9 @@ public class MyApp extends AppFrame {
             startBtn.setEnabled(false);
             pauseBtn.setEnabled(true);
             stopBtn.setEnabled(true);
+            rule.setEnabled(false);
+            gridLength.setEnabled(false);
+            endItr.setEnabled(false);
 
             // Start simulation
             startSim(ruleNum);
@@ -162,6 +166,10 @@ public class MyApp extends AppFrame {
             startBtn.setEnabled(true);
             pauseBtn.setEnabled(false);
             stopBtn.setEnabled(false);
+            rule.setEnabled(true);
+            gridLength.setEnabled(true);
+            endItr.setEnabled(true);
+
             fc.setRunStat(false);
             System.out.println("Stop pressed");
         }
@@ -171,6 +179,9 @@ public class MyApp extends AppFrame {
             startBtn.setEnabled(false);
             pauseBtn.setEnabled(true);
             stopBtn.setEnabled(true);
+            rule.setEnabled(false);
+            gridLength.setEnabled(false);
+            endItr.setEnabled(false);
             // Check the current state
             if (fc.isRunStat()) {
                 // If running pause
@@ -300,11 +311,11 @@ public class MyApp extends AppFrame {
                 "Intro",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB)));
         JOptionPane.showMessageDialog(null,
                         "Rule 1 has a different starting status where has a easier way to generate new active cells\n" +
-                        "for certain rows and columns and lower cell counts.\n" +
+                        "for certain rows and columns and lower cell counts.\n\n" +
                         "Rule 2 will generate new active cells if surrounding cells has 2 or 3 alive when total alive cells\n" +
-                        "is less than 2% of all cells.\n" +
+                        "is less than 2% of all cells.\n\n" +
                          "Rule 3 has a center part with red color that has a easier way to generate new active cells.\n" +
-                         "It acting like a life source. The black and white part follows exact rule from game of life.\n"
+                         "It acting like a life source. The black and white part follows exact rule from game of life.\n\n"
                 ,
                 "Rules",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB)));
         JOptionPane.showMessageDialog(null,

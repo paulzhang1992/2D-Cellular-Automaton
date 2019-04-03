@@ -22,7 +22,7 @@ public class MACanvas extends JPanel implements Observer {
 	public Frame cellFrame;
 	private FrameCollection fc;
 	private int [][] grid;
-	private int ruleNum = 0;
+	private int ruleNum = 1;
 
 	/**
 	 * MACanvas constructor
