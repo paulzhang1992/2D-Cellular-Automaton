@@ -109,19 +109,19 @@ public class MyApp extends AppFrame {
                     // Change the currentRule according to rule selections
                     switch ((String) (e.getItem())) {
                         case "Rule 1": {
-                            ruleNum = 0;
+                            ruleNum = 1;
                             System.out.println("Choosing rule 1");
                             break;
                         }
 
                         case "Rule 2": {
-                            ruleNum = 1;
+                            ruleNum = 2;
                             System.out.println("Choosing rule 2");
                             break;
                         }
 
                         case "Rule 3": {
-                            ruleNum = 2;
+                            ruleNum = 0;
                             System.out.println("Choosing rule 3");
                             break;
                         }
@@ -299,12 +299,12 @@ public class MyApp extends AppFrame {
                 ,
                 "Intro",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB)));
         JOptionPane.showMessageDialog(null,
-                "Rule 1 has a center part with red color that has a easier way to generate new active cells.\n" +
-                        "It acting like a life source. The black and white part follows exact rule from game of life.\n" +
-                        "Rule 2 has a different starting status where has a easier way to generate new active cells\n" +
-                        "for certain rows and columns.\n" +
-                        "Rule 3 will generate new active cells if surrounding cells has 2 or 3 alive when total alive cells\n" +
-                        "is less than 20% of all cells.\n"
+                        "Rule 1 has a different starting status where has a easier way to generate new active cells\n" +
+                        "for certain rows and columns and lower cell counts.\n" +
+                        "Rule 2 will generate new active cells if surrounding cells has 2 or 3 alive when total alive cells\n" +
+                        "is less than 2% of all cells.\n" +
+                         "Rule 3 has a center part with red color that has a easier way to generate new active cells.\n" +
+                         "It acting like a life source. The black and white part follows exact rule from game of life.\n"
                 ,
                 "Rules",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB)));
         JOptionPane.showMessageDialog(null,
