@@ -19,7 +19,7 @@ public class MACanvas extends JPanel implements Observer {
 	private Color col = null;
     private int maxRows = 50;
     private int maxCols = 50;
-	private Frame cellFrame;
+	public Frame cellFrame;
 	private FrameCollection fc;
 	private int [][] grid;
 	private int ruleNum = 0;
