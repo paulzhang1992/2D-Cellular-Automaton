@@ -2,9 +2,12 @@ package general;
 
 import javax.swing.*;
 import java.awt.image.BufferedImage;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.TimeUnit;
 
 public class FrameCollection extends Observable implements Runnable {
 
@@ -13,6 +16,8 @@ public class FrameCollection extends Observable implements Runnable {
     private int ruleNum;
     private int counter = 0;
     private int maxCount = 2000;
+    private String runningTime;
+    private long startTime = System.nanoTime();
 
 
 
@@ -30,7 +35,6 @@ public class FrameCollection extends Observable implements Runnable {
     @Override
     // Do iteration following the rule
     public void run() {
-
         // While true
         while (runStat) {
             // Keep maximum of 10 instances of frames
@@ -63,7 +67,11 @@ public class FrameCollection extends Observable implements Runnable {
                 JOptionPane.showMessageDialog(null,"Simulation completed!\nTotal iterations: "+ --counter,
                         "Complete",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB)));
             }
+            long endTime   = System.currentTimeMillis();
+            NumberFormat formatter = new DecimalFormat("#0.00");
+            runningTime = formatter.format((endTime - startTime)/1000d);
         }
+
         runStat = false;
     }
 
@@ -81,5 +89,13 @@ public class FrameCollection extends Observable implements Runnable {
 
     public void setMaxCount(int maxCount) {
         this.maxCount = maxCount;
+    }
+
+    public String getRunningTime() {
+        return runningTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
     }
 }

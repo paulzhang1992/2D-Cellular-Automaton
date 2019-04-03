@@ -10,9 +10,11 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.logging.Logger;
 
-public class MyApp extends AppFrame {
+public class MyApp extends AppFrame implements Observer {
 
     private static Logger log = Logger.getLogger(MyApp.class.getName());
     protected MACanvas canvas = null;       // Canvas
@@ -28,6 +30,9 @@ public class MyApp extends AppFrame {
     protected JTextField gridLength;
     protected JLabel itr;
     protected JTextField endItr;
+
+    protected JLabel totalItr;
+    protected JLabel totalTime;
 
     protected FrameCollection fc;
     private int ruleNum = 1;
@@ -58,32 +63,39 @@ public class MyApp extends AppFrame {
 
         // Size selection
         dim = new JLabel("Size");
+        dim.putClientProperty("JComponent.sizeVariant","small");
         northPanel.add(dim);
 
         // Default size 50*50
         gridLength = new JTextField("50",3);
         gridLength.setToolTipText("Enter the dimension of frame.\n Range: 10~999, Default value 50");
+        gridLength.putClientProperty("JComponent.sizeVariant","small");
         northPanel.add(gridLength);
 
 
         // Iteration selection
         itr = new JLabel("Iteration");
+        itr.putClientProperty("JComponent.sizeVariant","small");
         northPanel.add(itr);
 
         // Default iterations 2000
         endItr = new JTextField("1000",5);
+        endItr.putClientProperty("JComponent.sizeVariant","small");
         endItr.setToolTipText("Enter the iteration of simulation.\n Range: 200~99999, Default value 1000");
         northPanel.add(endItr);
 
         startBtn = new JButton("Start");
+        startBtn.putClientProperty("JComponent.sizeVariant","small");
         startBtn.addActionListener(this); // Allow the app to hear about button pushes
         northPanel.add(startBtn);
 
         pauseBtn = new JButton("Pause/Resume"); // Allow the app to hear about button pushes
+        pauseBtn.putClientProperty("JComponent.sizeVariant","small");
         pauseBtn.addActionListener(this);
         northPanel.add(pauseBtn);
 
         stopBtn = new JButton("Stop"); // Allow the app to hear about button pushes
+        startBtn.putClientProperty("JComponent.sizeVariant","small");
         stopBtn.addActionListener(this);
         northPanel.add(stopBtn);
 
@@ -94,6 +106,7 @@ public class MyApp extends AppFrame {
 
 
         rule = new JComboBox<String>();
+        rule.putClientProperty("JComponent.sizeVariant","mini");
         northPanel.add(rule);
         rule.addItem("Rule 1"); //Default
         rule.addItem("Rule 2");
@@ -133,6 +146,15 @@ public class MyApp extends AppFrame {
             }
         });
 
+        totalItr = new JLabel("Total Iteration: 0");
+        totalItr.putClientProperty("JComponent.sizeVariant","mini");
+        northPanel.add(totalItr);
+
+        totalTime = new JLabel("Total Run time: 0s");
+        totalTime.putClientProperty("JComponent.sizeVariant","mini");
+        northPanel.add(totalTime);
+
+
         return northPanel;
     }
 
@@ -157,6 +179,8 @@ public class MyApp extends AppFrame {
             gridLength.setEnabled(false);
             endItr.setEnabled(false);
 
+            //set a start time stamp
+            fc.setStartTime(System.currentTimeMillis());
             // Start simulation
             startSim(ruleNum);
 
@@ -268,6 +292,7 @@ public class MyApp extends AppFrame {
         // Start simulation
         fc.setRunStat(true);
         fc.addObserver(canvas);
+        fc.addObserver(this);
         Thread tr1 = new Thread(fc);
         tr1.start();
 
@@ -324,6 +349,12 @@ public class MyApp extends AppFrame {
                 "Extra",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB)));
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+        totalItr.setText("Total Iterations: "+(fc.getCounter()));
+        totalTime.setText("Total Run time:" + fc.getRunningTime()+"s");
+    }
+
     /**
      * Sample Wolf application starting point
      * @param args
@@ -332,4 +363,5 @@ public class MyApp extends AppFrame {
         MyApp app = new MyApp();
         log.info("MyApp started");
     }
+
 }
