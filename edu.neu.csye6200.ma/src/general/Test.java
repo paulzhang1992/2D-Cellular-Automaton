@@ -22,7 +22,8 @@ public class Test {
         startFrame.alterCell(7,10,1);
 
         // Set first iteration visible
-        FrameCollection fc = new FrameCollection(startFrame);
+        FrameCollection fc = new FrameCollection(startFrame,0);
+//        Thread tr1 = new Thread(fc);
         fc.run();
         Board b = new Board(startFrame,50);
         JFrame f = new JFrame("Cellular-Automaton");

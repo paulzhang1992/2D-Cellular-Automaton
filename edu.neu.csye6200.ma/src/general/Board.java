@@ -29,14 +29,14 @@ public class Board {
 //        JButton stop = new JButton("Stop");
 //        gui.add(stop);
         board = new JPanel(new GridLayout(0, height));
-        gui.add(board);
+        gui.add(board,BorderLayout.CENTER);
         boardUpdate(frame);
     }
     public void boardUpdate(Frame frame) {
         gui.remove(board);
         board = new JPanel(new GridLayout(0, height));
         //board.setBorder(new LineBorder(Color.BLACK));
-        gui.add(board);
+        gui.add(board,BorderLayout.CENTER);
         Insets buttonMargin = new Insets(0,0,0,0);
         int [][] grid = frame.getGridInt();
         int i =0;

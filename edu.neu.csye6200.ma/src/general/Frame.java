@@ -37,6 +37,56 @@ public class Frame {
         idCount++;
     }
 
+    // Default constructor with height and length of the frame
+    public Frame(int height, int length, char d) {
+        // Grid initialization
+        this.length = length;
+        this.height = height;
+        frame = new Cell[height][length];
+        int rowCord = 0;
+        // Adding cells to each spot on the frame
+        // Looping the rows and then looping cells on each row.
+        for (Cell[] cellRow : frame) {
+            int columnCord = 0;
+            for (Cell cell : cellRow) {
+                //Adding info including default status, Coordinates and frame size
+                // default value for cells
+                int dValue = 0;
+                frame[rowCord][columnCord] = new Cell(dValue, rowCord, columnCord);
+                columnCord++;
+            }
+            rowCord++;
+        }
+        id=idCount;
+        idCount++;
+
+        // Staring state for different rules
+        switch (d) {
+            case 'l':
+                this.alterCell((int)(height/5)+1,(int)(height/5)+1,1);
+                this.alterCell((int)(height/5)+3,(int)(height/5)+1,1);
+                this.alterCell((int)(3*height/5)-2,(int)(3*height/5)-2,1);
+                this.alterCell((int)(3*height/5)-2,(int)(3*height/5)-4,1);
+                this.alterCell((int)(2*height/5)+1,(int)(2*height/5)+1,1);
+                this.alterCell((int)(2*height/5)+3,(int)(2*height/5)+1,1);
+                this.alterCell((int)(4*height/5)-2,(int)(4*height/5)-2,1);
+                this.alterCell((int)(4*height/5)-2,(int)(4*height/5)-4,1);
+                this.alterCell((int)(4*height/5)+1,(int)(4*height/5)+1,1);
+                this.alterCell((int)(4*height/5)+1,(int)(4*height/5)+1,1);
+                this.alterCell(height-2,height-2,1);
+                this.alterCell(height-2,height-4,1);
+                break;
+            default:
+                case 'd':
+                    this.alterCell((int)(2*height/5)+1,(int)(2*height/5)+1,1);
+                    this.alterCell((int)(2*height/5)+3,(int)(2*height/5)+1,1);
+                    this.alterCell((int)(3*height/5)-2,(int)(3*height/5)-2,1);
+                    this.alterCell((int)(3*height/5)-2,(int)(3*height/5)-4,1);
+                    break;
+        }
+
+    }
+
     // Constructor for creating a exact copy
     public Frame(Frame previousFrame) {
         frame = new Cell[previousFrame.height][previousFrame.length];
