@@ -70,7 +70,8 @@ public class RuleGameOfLife implements Rule {
         // easier give lives rule for center part to keep the frame running
         if (sum == 3) newCell.setStatus(1);
         else if (sum == 2){
-            if (previousCell.getStatus()==1 && (previousCell.colCord%3 != 0 || previousCell.rowCord%3 !=0)) newCell.setStatus(1);
+            if (totalActive(preGen) <=  14) newCell.setStatus(1);
+            else if (previousCell.getStatus()==1 && (previousCell.colCord%3 != 0 || previousCell.rowCord%3 !=0)) newCell.setStatus(1);
         }
         return newCell;
     }
@@ -79,8 +80,8 @@ public class RuleGameOfLife implements Rule {
         Cell newCell = new Cell(0,previousCell.rowCord,previousCell.colCord);
         int sum = cellSum(previousCell);
 
-        if (sum == 2) newCell.setStatus(1);
-        else if (sum==3 && totalActive(preGen) <=  (preGen.getLength()*preGen.getLength()/20) ) newCell.setStatus(1);
+        if (sum == 2 && totalActive(preGen) <=  (preGen.getLength()*preGen.getLength()/50)) newCell.setStatus(1);
+        else if (sum==3 ) newCell.setStatus(1);
         return newCell;
     }
 

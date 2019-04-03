@@ -71,8 +71,8 @@ public class MyApp extends AppFrame {
         northPanel.add(itr);
 
         // Default iterations 2000
-        endItr = new JTextField("2000",5);
-        endItr.setToolTipText("Enter the iteration of simulation.\n Range: 200~99999, Default value 2000");
+        endItr = new JTextField("1000",5);
+        endItr.setToolTipText("Enter the iteration of simulation.\n Range: 200~99999, Default value 1000");
         northPanel.add(endItr);
 
         startBtn = new JButton("Start");
@@ -248,9 +248,9 @@ public class MyApp extends AppFrame {
     private void startSim(int ruleNum) {
         // Validating the iteration count
         int maxCount;
-        if (endItr.getText().isEmpty()) maxCount = 2000;
+        if (endItr.getText().isEmpty()) maxCount = 1000;
 //        else if (Integer.valueOf(endItr.getText()) == -1) maxCount = 20;    // For testing
-        else if (Integer.valueOf(endItr.getText()) < 200) maxCount = 2000;
+        else if (Integer.valueOf(endItr.getText()) < 200) maxCount = 1000;
         else maxCount = Integer.valueOf(endItr.getText());
         fc.setMaxCount(maxCount);
 

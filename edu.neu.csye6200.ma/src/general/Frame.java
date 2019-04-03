@@ -63,18 +63,18 @@ public class Frame {
         // Staring state for different rules
         switch (d) {
             case 'l':
-                this.alterCell((int)(height/5)+1,(int)(height/5)+1,1);
-                this.alterCell((int)(height/5)+3,(int)(height/5)+1,1);
+//                this.alterCell((int)(height/5)+1,(int)(height/5)+1,1);
+//                this.alterCell((int)(height/5)+3,(int)(height/5)+1,1);
                 this.alterCell((int)(3*height/5)-2,(int)(3*height/5)-2,1);
                 this.alterCell((int)(3*height/5)-2,(int)(3*height/5)-4,1);
                 this.alterCell((int)(2*height/5)+1,(int)(2*height/5)+1,1);
                 this.alterCell((int)(2*height/5)+3,(int)(2*height/5)+1,1);
-                this.alterCell((int)(4*height/5)-2,(int)(4*height/5)-2,1);
-                this.alterCell((int)(4*height/5)-2,(int)(4*height/5)-4,1);
+//                this.alterCell((int)(4*height/5)-2,(int)(4*height/5)-2,1);
+//                this.alterCell((int)(4*height/5)-2,(int)(4*height/5)-4,1);
                 this.alterCell((int)(4*height/5)+1,(int)(4*height/5)+1,1);
                 this.alterCell((int)(4*height/5)+1,(int)(4*height/5)+1,1);
-                this.alterCell(height-2,height-2,1);
-                this.alterCell(height-2,height-4,1);
+//                this.alterCell(height-2,height-2,1);
+//                this.alterCell(height-2,height-4,1);
                 break;
             default:
                 case 'd':
