@@ -1,0 +1,6 @@
+\begin{itemize}
+   \item window is deactivated. Simulation will be paused automatically.
+   \item Pause button is pressed. Simulation will be paused.
+   \item Stop button is clicked. Simulation will be terminated early.
+   \item Pop up window show the summary.
+\end{itemize}

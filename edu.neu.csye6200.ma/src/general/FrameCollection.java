@@ -7,7 +7,6 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.concurrent.TimeUnit;
 
 public class FrameCollection extends Observable implements Runnable {
 

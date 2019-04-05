@@ -42,13 +42,14 @@ public class MyApp extends AppFrame implements Observer {
     public MyApp() {
 
         // Default size
-        frame.setSize(800, 890);
+        frame.setSize(800, 885);
         frame.setTitle("2D Cellular Automaton");
         frame.add(getNorthPanel(), BorderLayout.NORTH);
         menuMgr.createDefaultActions(); // Set up default menu items
 
         canvas = (MACanvas)getMainPanel();
         frame.add(canvas, BorderLayout.CENTER);
+        frame.setMinimumSize(new Dimension(750,835));
 
         showUI(); // Cause the Swing Dispatch thread to display the JFrame
 
@@ -68,7 +69,7 @@ public class MyApp extends AppFrame implements Observer {
 
         // Default size 50*50
         gridLength = new JTextField("50",3);
-        gridLength.setToolTipText("Enter the dimension of frame.\n Range: 10~999, Default value 50");
+        gridLength.setToolTipText("Enter the dimension of frame.\n Range: 20~800, Default value 50");
         gridLength.putClientProperty("JComponent.sizeVariant","small");
         northPanel.add(gridLength);
 
@@ -305,7 +306,8 @@ public class MyApp extends AppFrame implements Observer {
         // Validate the frame dimension input
         int rows;
         if (gridLength.getText().isEmpty()) rows = 50;
-        else if (Integer.valueOf(gridLength.getText()) < 10) rows = 50;
+        else if (Integer.valueOf(gridLength.getText()) < 20) rows = 20;
+        else if (Integer.valueOf(gridLength.getText()) > 800) rows = 800;
         else rows = Integer.valueOf(gridLength.getText());
         // Reset canvas size
         canvas.setMaxRows(rows);

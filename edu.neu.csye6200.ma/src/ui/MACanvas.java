@@ -74,7 +74,7 @@ public class MACanvas extends JPanel implements Observer {
 			   int startY = j* stepSizeY;
 
 			   // Draw the grid
-			   paintRect(g2d, startX, startY, stepSizeX -1, stepSizeY -1, col);
+			   paintRect(g2d, startX, startY, stepSizeX , stepSizeY , col);
 		   }
 		}
 	}

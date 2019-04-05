@@ -1,0 +1,207 @@
+%!TeX encoding = UTF-8
+%!TeX spellcheck = en_US
+
+\documentclass[notitlepage]{article}
+\usepackage[left=2.cm,right=2.cm,top=.8cm,bottom=.8cm,includefoot,includehead,headheight=39pt]{geometry}
+% \geometry{letterpaper}
+
+% https://git.overleaf.com/2811329btybdm
+
+\usepackage[utf8]{inputenc}
+\usepackage{paralist}
+\usepackage{fullpage}
+
+\usepackage{titling}
+\usepackage{lipsum}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{chngcntr}
+
+\date{}
+\author{}
+\counterwithin*{section}{part}
+\renewcommand*\sectionmark[1]{\markboth{#1}{}}
+\renewcommand*\subsectionmark[1]{\markright{#1}}
+
+\newcommand{\name}[1]{%
+   \title{#1}
+   \maketitle
+}
+
+\includecomment{comment}
+
+\begin{document}
+
+   \title{\Huge Use-Case}
+
+\vspace{-2cm}%   
+
+\part{\LARGE Use-Case 1:$<$Start simulation$>$}
+
+\section{Use-case description}
+
+\begin{comment}
+	{\noindent The program will start the cell simulation till it ends.}
+\end{comment}
+
+% \lipsum[1]
+
+\section{Preconditions}
+
+\begin{itemize}
+	\item Program started and an instance of app is created.
+	\item Canvas size is set manual or set by default and is loaded.
+	\item Rule for cell iteration is selected or set as default.
+\end{itemize}
+
+\section{Trigger}\label{sec:trigger}
+
+\begin{comment}
+     \noindent Start button is clicked
+\end{comment}
+
+\section{Post-conditions}\label{sec:postconditions}
+
+\begin{comment}
+     \noindent Frame collection is created based on rule selection. Simulation thread will be created and start running.
+\end{comment}
+
+\section{Scenarios}\label{sec:scenarios}
+
+\subsection{Main Scenario}\label{subsec:main:scenario}
+
+\begin{comment}
+	\begin{itemize}
+  		\item Frame collection is created based on rule selection.
+  		\item Frame got updated after each iterations.
+  		\item Canvas and app got updated after receive message from frame collection.
+  		\item Iteration count reach limit.
+  		\item Simulation end.
+  		\item Pop up window show the summary.
+	\end{itemize}
+\end{comment}
+
+\subsection{Alternative Scenario}\label{subsec:alternative:scenario}
+
+\begin{comment}
+	\begin{itemize}
+  		\item window is deactivated. Simulation will be paused automatically.
+  		\item Pause button is pressed. Simulation will be paused.
+  		\item Stop button is clicked. Simulation will be terminated early.
+  		\item Pop up window show the summary.
+	\end{itemize}
+\end{comment}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\part{\LARGE Use-Case 2:$<$Rule selection$>$}
+
+\section{Use-case description}
+
+\begin{comment}
+	{\noindent Switching between three stored rules.}
+\end{comment}
+
+
+\section{Preconditions}
+
+\begin{itemize}
+	\item Program started and an instance of app is created.
+	\item Canvas size is set manual or set by default and is loaded.
+	\item Simulation is current not running.
+	\item Simulation is in paused condition.
+\end{itemize}
+
+\section{Trigger}\label{sec:trigger}
+
+\begin{comment}
+     \noindent Click on rule selection menu.
+\end{comment}
+
+\section{Post-conditions}\label{sec:postconditions}
+
+\begin{comment}
+     \noindent Simulation rule will be set as desire.
+\end{comment}
+
+\section{Scenarios}\label{sec:scenarios}
+
+\subsection{Main Scenario}\label{subsec:main:scenario}
+
+\begin{comment}
+	\begin{itemize}
+  		\item Rule number is set to 0, 1 or 2.
+  		\item Start pattern is send to frame collection ready for new simulation.
+	\end{itemize}
+\end{comment}
+
+\subsection{Alternative Scenario}\label{subsec:alternative:scenario}
+
+\begin{comment}
+	\begin{itemize}
+  		\item No alternative scenarios.
+	\end{itemize}
+\end{comment}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\part{\LARGE Use-Case 3:$<$Resume simulation$>$}
+
+\section{Use-case description}
+
+\begin{comment}
+	{\noindent The simulation restart.}
+\end{comment}
+
+
+\section{Preconditions}
+
+\begin{itemize}
+	\item Program started and an instance of app is created.
+	\item Simulation has at least one previous iteration while having iteration count is less than max setting.
+	\item Simulation is current paused.
+\end{itemize}
+
+\section{Trigger}\label{sec:trigger}
+
+\begin{comment}
+     \noindent Pause/Resume button is clicked
+\end{comment}
+
+\section{Post-conditions}\label{sec:postconditions}
+
+\begin{comment}
+     \noindent Simulation thread run trigger will be set to true. Frame collection is updated again. 
+\end{comment}
+
+\section{Scenarios}\label{sec:scenarios}
+
+\subsection{Main Scenario}\label{subsec:main:scenario}
+
+\begin{comment}
+	\begin{itemize}
+  		\item Simulation thread run trigger will be set to true.
+  		\item Frame got updated after each iterations.
+  		\item Canvas and app got updated after receive message from frame collection.
+  		\item Iteration count reach limit.
+  		\item Simulation end.
+  		\item Pop up window show the summary.
+	\end{itemize}
+\end{comment}
+
+\subsection{Alternative Scenario}\label{subsec:alternative:scenario}
+
+\begin{comment}
+	\begin{itemize}
+  		\item window is deactivated. Simulation will be paused automatically.
+  		\item Pause button is pressed. Simulation will be paused.
+  		\item Stop button is clicked. Simulation will be terminated early.
+  		\item Pop up window show the summary.
+	\end{itemize}
+\end{comment}
+
+
+\end{document}
